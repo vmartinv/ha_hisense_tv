@@ -114,6 +114,7 @@ class HisenseTvFlow(config_entries.ConfigFlow, domain=DOMAIN):
         return self.async_show_progress(
             step_id="user",
             progress_action="progress_action",
+            progress_task=self.activation_task,
         )
 
     async def _check_authentication(self, client_id):
@@ -190,6 +191,7 @@ class HisenseTvFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return self.async_show_progress(
                 step_id="auth",
                 progress_action="progress_action",
+                progress_task=self.activation_task,
             )
 
     async def async_step_finish(self, user_input=None):
